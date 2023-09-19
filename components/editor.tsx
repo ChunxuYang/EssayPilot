@@ -15,8 +15,7 @@ const Editor = () => {
     content: ``,
     editorProps: {
       attributes: {
-        class:
-          "prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-xl m-10 focus:outline-none",
+        class: "prose dark:prose-invert h-full w-full m-10 focus:outline-none",
       },
     },
   });

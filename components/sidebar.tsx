@@ -9,10 +9,10 @@ import {
 
 function SideBar() {
   return (
-    <Card>
+    <Card className="w-96">
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardTitle>Functions</CardTitle>
+        <CardDescription>AI assistance you can seek for</CardDescription>
       </CardHeader>
       <CardContent>
         <p>Card Content</p>

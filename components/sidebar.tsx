@@ -7,6 +7,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 function SideBar() {
   return (
     <Card className="w-96">
@@ -15,10 +22,17 @@ function SideBar() {
         <CardDescription>AI assistance you can seek for</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Block Detection</AccordionTrigger>
+            <AccordionContent>
+              Detects blocks by 5 seconds of idle time.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </CardContent>
       <CardFooter>
-        <p>Card Footer</p>
+        <p className="text-gray-500 text-sm">More is coming up...</p>
       </CardFooter>
     </Card>
   );

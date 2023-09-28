@@ -28,10 +28,9 @@ export async function POST(req: Request): Promise<Response> {
       {
         role: "system",
         content:
-          "You are an AI writing assistant that continues existing text based on context from prior text. " +
-          "Give more weight/priority to the later characters than the beginning ones. " +
-          "Limit your response to no more than 200 characters, but make sure to construct complete sentences." +
-          "Put an extra space at the end",
+          "You are an AI writing assistant that give ideas about how to continue the essay." +
+          "Give 3 choices of ideas (each idea is less than 10 words)" +
+          ' Respond with a JSON array of ideas ["idea1", "idea2", ...]',
         // we're disabling markdown for now until we can figure out a way to stream markdown text with proper formatting: https://github.com/steven-tey/novel/discussions/7
         // "Use Markdown formatting when appropriate.",
       },

@@ -22,11 +22,18 @@ function SideBar() {
         <CardDescription>AI assistance you can seek for</CardDescription>
       </CardHeader>
       <CardContent>
-        <Accordion type="single" collapsible>
+        <Accordion type="multiple">
           <AccordionItem value="item-1">
             <AccordionTrigger>Block Detection</AccordionTrigger>
             <AccordionContent>
               Detects blocks by 5 seconds of idle time.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Idea Inspiration</AccordionTrigger>
+            <AccordionContent>
+              Generate ideas for you to continue writing when hopping between
+              pages.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

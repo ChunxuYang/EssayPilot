@@ -20,7 +20,7 @@ export async function POST(req: Request): Promise<Response> {
     );
   }
 
-  let { prompt } = await req.json();
+  let { prompt, idea } = await req.json();
 
   const response = await openai.chat.completions.create({
     model: "gpt-3.5-turbo",
@@ -28,7 +28,7 @@ export async function POST(req: Request): Promise<Response> {
       {
         role: "system",
         content:
-          "You are an AI writing assistant that continues existing text based on context from prior text. " +
+          "You are an AI writing assistant that continues existing text based on context from prior text and idea. " +
           "Give more weight/priority to the later characters than the beginning ones. " +
           "Limit your response to no more than 200 characters, but make sure to construct complete sentences." +
           "Put an extra space at the end",
@@ -37,7 +37,7 @@ export async function POST(req: Request): Promise<Response> {
       },
       {
         role: "user",
-        content: prompt,
+        content: prompt + "The following idea is: " + idea + ".",
       },
     ],
     temperature: 0.7,

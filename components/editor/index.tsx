@@ -7,7 +7,6 @@ import { useEffect, useRef } from "react";
 // import { Toaster } from "@/components/ui/toaster";
 // import { ToastAction } from "@/components/ui/toast";
 // import { useToast } from "@/components/ui/use-toast";
-import { Sparkles } from "lucide-react";
 import { useCompletion } from "ai/react";
 import { getPrevText } from "@/lib/editor";
 import { useLeavingCount } from "@/utils/hooks/use-leaving-count";
@@ -91,15 +90,6 @@ const Editor = () => {
     api: "/api/idea",
   });
 
-  const {
-    complete: ideaContinueComplete,
-    completion: ideaContinueCompletion,
-    isLoading: ideaContinueIsLoading,
-  } = useCompletion({
-    id: "essaypilot",
-    api: "/api/generate/idea",
-  });
-
   useEffect(() => {
     const diff = completion.slice(prev.current.length);
     prev.current = completion;
@@ -107,14 +97,6 @@ const Editor = () => {
       editor?.commands.insertContent(diff);
     }
   }, [completion, isLoading]);
-
-  useEffect(() => {
-    const diff = ideaContinueCompletion.slice(prev.current.length);
-    prev.current = completion;
-    if (diff) {
-      editor?.commands.insertContent(diff);
-    }
-  }, [ideaContinueCompletion, ideaContinueIsLoading]);
 
   // if the page is not empty, and leaveCount > 4, then show toast
   useEffect(() => {
@@ -167,7 +149,7 @@ const Editor = () => {
                                 getPrevText(editor, {
                                   chars: 5000,
                                 }) +
-                                  "Now, write about " +
+                                  "Now, write about this idea: " +
                                   idea
                               );
                             }

@@ -1,12 +1,11 @@
+import { useEffect, useState } from "react";
+
 /**
  * Used to count how many times the user has left the page
  * @returns {boolean} leaving - whether the user is leaving the page
  * @returns {number} count - how many times the user has left the page
  * @returns {function} clearCount - function to clear the count
  */
-
-import { useEffect, useState } from "react";
-
 export const useLeavingCount = (onReturning?: () => void) => {
   const [leaving, setLeaving] = useState(false);
   const [count, setCount] = useState(0);
@@ -20,6 +19,7 @@ export const useLeavingCount = (onReturning?: () => void) => {
       if (document.hidden) {
         setLeaving(true);
       } else {
+        setLeaving(false);
         onReturning?.();
         setCount((count) => count + 1);
       }
